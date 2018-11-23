@@ -2,7 +2,7 @@
  * ENSF480
  * Term Project
  * Authors: Sean Mai 10154016
- *          Wafa Anam
+ *          Wafa Anam 10153891
  *          Karla Hernandez
  * Nov 14, 2018
  *
