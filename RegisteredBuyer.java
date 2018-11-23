@@ -10,8 +10,11 @@
 
 import java.util.ArrayList;
 
-public class OrdinaryBuyer implements Buyer, extends User{
-    private RegisteredBuyer register(OrdinaryBuyer oBuyer){
+public class RegisteredBuyer implements Buyer, extends User{
+    public void unsubscribe(){
+        
+    }
+    public ArrayList<Document> viewPromos(){
 
     }
 }

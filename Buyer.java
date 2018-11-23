@@ -11,7 +11,8 @@
 import java.util.ArrayList;
 
 public interface Buyer{
-    private void addToCart(Document doc);
-    private void searchDocument(String name);
-    private void placeOrder(ArrayList<Documents> cart);
+    public void addToCart(Document doc);
+    public void searchDocument(String name);
+    public void placeOrder(ArrayList<Documents> cart);
+    public void makePayment();
 }

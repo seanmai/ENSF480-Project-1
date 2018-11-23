@@ -11,5 +11,10 @@
 import java.util.ArrayList;
 
 public class Operator {
-    
+    public void addDocument(Document doc, ArrayList<Document> docList){
+    }
+    public void updateDocument(Document doc, ArrayList<Document> docList){
+    }
+    public void removeDocument(Document doc, ArrayList<Document> docList){
+    }
 }

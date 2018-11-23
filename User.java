@@ -15,8 +15,8 @@ public abstract class User{
     private String username;
     private String password;
     private String name;
+    private String type;
 
     private boolean login(String username, String password){
-        return(username.equals(this.username) && password.equals(this.username));
     }
 }
