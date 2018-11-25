@@ -11,10 +11,13 @@
 import java.util.ArrayList;
 
 public class RegisteredBuyer extends User implements Buyer{
+    
+    ArrayList<Promotion> promotions;
+
     public void unsubscribe(){
         
     }
-    public ArrayList<Document> viewPromos(){
+    public ArrayList<Promotion> viewPromos(){
     	
     }
     
