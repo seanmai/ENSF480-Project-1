@@ -13,12 +13,15 @@ import java.util.ArrayList;
 public class Operator {
 	
     public void addDocument(Document doc){
-		Inventory.getInstance().addDocument(doc);
+		InventoryController c = new InventoryController();
+		c.addDocument(doc);
     }
     public void updateDocument(Document doc){
-		Inventory.getInstance().updateDocument(doc);
+		InventoryController c = new InventoryController();
+		c.updateDocument(doc);
     }
     public void removeDocument(Document doc){
-		Inventory.getInstance().removeDocument(doc);
+		InventoryController c = new InventoryController();
+		c.removeDocument(doc);
     }
 }

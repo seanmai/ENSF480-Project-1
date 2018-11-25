@@ -29,21 +29,16 @@ public class Inventory{
 		documents = new ArrayList<Document>();
 	}
 	
-    public void addDocument(Document doc){
-		documents.add(doc);
-    }
-    public void updateDocument(Document doc){
-		System.out.println("in addDocument");
-    }
-    public void removeDocument(Document doc){
-		System.out.println("in removeDocument");
-    }
-	
 	public void display()
 	{
 		for(int i = 0; i < documents.size(); i++)
 		{
-			System.out.println(documents.get(i).display());
+			System.out.println("display doc");
 		}
+	}
+	
+	public ArrayList<Document> getDocuments()
+	{
+		return documents;
 	}
 }
