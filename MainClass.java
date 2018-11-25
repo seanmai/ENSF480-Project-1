@@ -39,7 +39,16 @@ public class MainClass{
 			
 			do{
 				theUser = aController.logIn();
-			}while(theUser == null)
+			}while(theUser == null);
+			
+			if(theUser.getType().equals("R"))
+			{
+				
+			}
+			else if(theUser.getType().equals("O"))
+			{
+				
+			}
 		}
 		
 		else

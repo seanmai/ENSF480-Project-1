@@ -16,7 +16,8 @@ public abstract class User{
     private String password;
     private String name;
     private String type;
-
-    private boolean login(String username, String password){
-    }
+	
+	public String getType(){
+		return type; 
+	}
 }
