@@ -11,10 +11,14 @@
 import java.util.ArrayList;
 
 public class Operator {
-    public void addDocument(Document doc, ArrayList<Document> docList){
+	
+    public void addDocument(Document doc){
+		Inventory.getInstance().addDocument(doc);
     }
-    public void updateDocument(Document doc, ArrayList<Document> docList){
+    public void updateDocument(Document doc){
+		Inventory.getInstance().updateDocument(doc);
     }
-    public void removeDocument(Document doc, ArrayList<Document> docList){
+    public void removeDocument(Document doc){
+		Inventory.getInstance().removeDocument(doc);
     }
 }
