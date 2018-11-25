@@ -1,6 +1,7 @@
 
 public class Promotion {
 
+	private int id;
 	private String startDate;
 	private String endDate;
 	private String description;
@@ -25,5 +26,10 @@ public class Promotion {
 	public void setDescription(String description) {
 		this.description = description;
 	} 
+	
+	public int getID(){
+		return id;
+	}
+	
 	
 }
