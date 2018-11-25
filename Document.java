@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public class Document {
 	
-	private static classID = 0; 
-	private ID;
+	private static int classID = 0; 
+	private int ID;
 	
 	private String author;
 	private String title;
@@ -40,14 +40,6 @@ public class Document {
 	public void setPages(int pages) {
 		this.pages = pages;
 	}
-	public String getGenre() {
-		String genres = "";
-		for(int i = 0; i < genre.size(); i++){
-			genres += genre.get(i);
-			genres += "\n";
-		}
-		return genres;
-	}
 
 	public int getQuantity() {
 		return quantity;
@@ -57,6 +49,6 @@ public class Document {
 	}
 	
 	public void display(){
-		System.out.print(ID + ". Title: " + title + "\n" + "Author: "+ author + "\n" + "Genre: " + getGenre() + "\n" + "Page: " + pages);
+		System.out.print(ID + ".  " + "Title: " + title + "\n" + "Author: "+ author + "\n" + "Genre: " + getGenre() + "\n" + "Page: " + pages);
 	}
 }
