@@ -10,11 +10,25 @@
 
 import java.util.ArrayList;
 
-public class RegisteredBuyer implements Buyer, extends User{
+public class RegisteredBuyer extends User implements Buyer{
     public void unsubscribe(){
         
     }
     public ArrayList<Document> viewPromos(){
-
+    	
+    }
+    
+    public void addToCart(Document doc){
+    	
+    }
+    public void searchDocument(String name){
+    	
+    }
+    public void placeOrder(ArrayList<Document> cart){
+    	
+    }
+    public void makePayment(){
+    	
     }
 }
+
