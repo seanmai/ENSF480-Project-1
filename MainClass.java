@@ -34,7 +34,12 @@ public class MainClass{
 		int firstOption = startMenu();
 		if(firstOption == 1)
 		{
-			LoginCon
+			LoginController aController = new LoginController();
+			User theUser;
+			
+			do{
+				theUser = aController.logIn();
+			}while(theUser == null)
 		}
 		
 		else
