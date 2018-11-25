@@ -13,6 +13,6 @@ import java.util.ArrayList;
 public interface Buyer{
     public void addToCart(Document doc);
     public void searchDocument(String name);
-    public void placeOrder(ArrayList<Documents> cart);
+    public void placeOrder(ArrayList<Document> cart);
     public void makePayment();
 }
