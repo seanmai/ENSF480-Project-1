@@ -33,7 +33,7 @@ public class Inventory{
 	{
 		for(int i = 0; i < documents.size(); i++)
 		{
-			System.out.println("display doc");
+			documents.get(i).display();
 		}
 	}
 	
