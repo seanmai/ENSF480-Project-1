@@ -15,7 +15,7 @@ public class LoginController{
 	private UserList users;
 	private LoginView view;
 	
-	public LoginController(LoginView v)
+	public LoginController()
 	{
 		users = UserList.getInstance();
 		view = new LoginView();
@@ -23,17 +23,22 @@ public class LoginController{
 	
 	public User logIn()
 	{
-		view.display();
-		String user = view.getUser();
-		String pass = view.getPass();
-		for(int i = 0; i < users.getUsers().size(); i++)
-		{
-			User currentUser = users.getUsers().get(i);
-			if(currentUser.getUsername().equals(user) && currentUser.passwordMatches(pass))
+			User currentUser;
+			User theUser;
+			
+			view.display();
+			String user = view.getUser();
+			String pass = view.getPass();
+			System.out.println("entered user is: " + user);
+			System.out.println("entered pass is: " + pass);
+			for(int i = 0; i < users.getUsers().size(); i++)
 			{
-				return currentUser;
+				currentUser = users.getUsers().get(i);
+				if(currentUser.getUsername().equals(user) && currentUser.passwordMatches(pass))
+				{
+					return currentUser;
+				}
 			}
-		}
-		return null; 
+			return null;
 	}
 }

@@ -1,12 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class LoginView implements View{
 	
 	String enteredUser;
 	String enteredPass;
 	
-	public void display() {
-		System.out.println("function needs to display");
+	public void display(){   
 		
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			System.out.println("Please enter your username:");
+			enteredUser = input.readLine();
+			System.out.println("Please enter your password:");
+			enteredPass = input.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		Scanner reader = new Scanner(System.in);
+//		String s;
+//		System.out.println("Please enter your username:");
+//		s = reader.nextLine();
+//		System.out.println("Please enter your password:");
+//		s = reader.nextLine();
+//		reader.close();
 	}
 
 	public String getUser() {

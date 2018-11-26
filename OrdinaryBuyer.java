@@ -11,9 +11,9 @@
 import java.util.ArrayList;
 
 public class OrdinaryBuyer implements Buyer{
-    private RegisteredBuyer register(){
-        
-    }
+//    private RegisteredBuyer register(){
+//        return null;
+//    }
 
 	@Override
 	public void addToCart(Document doc) {

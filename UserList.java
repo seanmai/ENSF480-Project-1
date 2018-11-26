@@ -34,4 +34,9 @@ public class UserList{
 	{
 		return users;
 	}
+	
+	public void addUser(User u)
+	{
+		single_list.users.add(u);
+	}
 }

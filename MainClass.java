@@ -8,34 +8,53 @@
  *
  */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
  
 public class MainClass{
+	static BufferedReader input;
 	
 	/**
 	* Prints start menu and returns user choice
 	* between logging in and continuing as guest user
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	*/
-	public static int startMenu()
+	public static int startMenu() throws NumberFormatException, IOException
 	{
-		Scanner reader = new Scanner(System.in);
 		int n;
 		do{
 		System.out.println("Please select one of the following:");
 		System.out.println("1. Login");
 		System.out.println("2. Continue as guest");
-		n = reader.nextInt();
+		n = Integer.parseInt(input.readLine());
 		}while(n != 1 && n != 2);
-		reader.close();
-		
 		return n;
 	}
 	
-	public static void main(String args)
-	{
-		Scanner reader = new Scanner(System.in);
+	public static void populateDocs(){
 		
-		int firstOption = startMenu();
+	}
+	public static void populateUsers(){
+		UserList theList = UserList.getInstance();
+		//theList.addUser(new User());
+	}
+	
+	public static void main(String[] args)
+	{
+		input = new BufferedReader(new InputStreamReader(System.in));
+		populateDocs();
+		populateUsers();
+		
+		int firstOption = 0;
+		try {
+			firstOption = startMenu();
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(firstOption == 1)
 		{
 			LoginController aController = new LoginController();
@@ -47,18 +66,19 @@ public class MainClass{
 			
 			if(theUser.getType().equals("R"))
 			{
-				
+				System.out.println("registered buyer logged in");
 			}
 			else if(theUser.getType().equals("O"))
 			{
-				
+				System.out.println("operator logged in");
 			}
 		}
 		
 		else
 		{
+			System.out.println("browsing as guest");
 		}
 		
-		reader.close();
+		//reader.close();
 	}
 }
