@@ -54,6 +54,6 @@ public class Document {
 	}
 	
 	public void display(){
-		System.out.print(ID + ".  " + "Title: " + title + "\n" + "Author: "+ author + "\n" + "Type: " + getType() + "\n" + "Page: " + pages);
+		System.out.println(ID + ".	" + title + "\n" + "	Author: "+ author + "\n" + "	Type: " + getType() + "\n" + "	Pages: " + pages + "\n");
 	}
 }

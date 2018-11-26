@@ -29,4 +29,9 @@ public class InventoryController{
     public void removeDocument(Document doc){
 		System.out.println("in remove document");
     }
+    
+    public void displayInventory() {
+    	System.out.println("\nInventory contains: \n");
+    	theInv.display();
+    }
 }

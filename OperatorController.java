@@ -30,7 +30,8 @@ public class OperatorController {
 				
 				switch(selection) {
 				case 1:
-					System.out.println("add browse logic");
+					InventoryController aControl = new InventoryController();
+					aControl.displayInventory();
 					break;
 				case 2:
 					System.out.println("add add logic");
