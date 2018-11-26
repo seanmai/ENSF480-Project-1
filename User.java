@@ -20,4 +20,13 @@ public abstract class User{
 	public String getType(){
 		return type; 
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public boolean passwordMatches(String pass) {
+		if(password.equals(pass))return true;
+		return false;
+	}
 }

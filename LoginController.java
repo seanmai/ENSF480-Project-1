@@ -29,7 +29,7 @@ public class LoginController{
 		for(int i = 0; i < users.getUsers().size(); i++)
 		{
 			User currentUser = users.getUsers().get(i);
-			if(currentUser.getUsername.equals(user) && currentUser.passwordMatches(pass))
+			if(currentUser.getUsername().equals(user) && currentUser.passwordMatches(pass))
 			{
 				return currentUser;
 			}

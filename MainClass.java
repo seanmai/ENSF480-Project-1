@@ -12,7 +12,11 @@ import java.util.Scanner;
  
 public class MainClass{
 	
-	public int startMenu()
+	/**
+	* Prints start menu and returns user choice
+	* between logging in and continuing as guest user
+	*/
+	public static int startMenu()
 	{
 		Scanner reader = new Scanner(System.in);
 		int n;

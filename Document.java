@@ -48,7 +48,12 @@ public class Document {
 		this.quantity = quantity;
 	}
 	
+	public String getType()
+	{
+		return type;
+	}
+	
 	public void display(){
-		System.out.print(ID + ".  " + "Title: " + title + "\n" + "Author: "+ author + "\n" + "Genre: " + getGenre() + "\n" + "Page: " + pages);
+		System.out.print(ID + ".  " + "Title: " + title + "\n" + "Author: "+ author + "\n" + "Type: " + getType() + "\n" + "Page: " + pages);
 	}
 }
