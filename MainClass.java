@@ -35,11 +35,14 @@ public class MainClass{
 	}
 	
 	public static void populateDocs(){
-		
+		InventoryController invControl = new InventoryController();
+		Document d1 = new Document("Waf", "My Book", 15, "Book", 200);
+		invControl.addDocument(d1);
 	}
 	public static void populateUsers(){
 		UserList theList = UserList.getInstance();
-		//theList.addUser(new User());
+		Operator o1 = new Operator("wafa.anam", "pass", "Wafa");
+		theList.addUser(o1);
 	}
 	
 	public static void main(String[] args)
@@ -47,38 +50,50 @@ public class MainClass{
 		input = new BufferedReader(new InputStreamReader(System.in));
 		populateDocs();
 		populateUsers();
-		
+
+
 		int firstOption = 0;
-		try {
-			firstOption = startMenu();
-		} catch (NumberFormatException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(firstOption == 1)
-		{
-			LoginController aController = new LoginController();
-			User theUser;
-			
-			do{
-				theUser = aController.logIn();
-			}while(theUser == null);
-			
-			if(theUser.getType().equals("R"))
-			{
-				System.out.println("registered buyer logged in");
+
+		do {
+			try {
+				firstOption = startMenu();
+			} catch (NumberFormatException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			else if(theUser.getType().equals("O"))
+
+			if(firstOption == 1)
 			{
-				System.out.println("operator logged in");
+				LoginController aController = new LoginController();
+				User theUser;
+
+				do{
+					theUser = aController.logIn();
+				}while(theUser == null);
+
+				if(theUser.getType().equals("R"))
+				{
+					System.out.println("registered buyer logged in");
+				}
+				else if(theUser.getType().equals("O"))
+				{
+					System.out.println("operator logged in");
+					OperatorController aControl = new OperatorController(theUser);
+					aControl.runSession();
+				}
 			}
-		}
+
+			else
+			{
+				System.out.println("browsing as guest");
+			}
+		}while(true);
 		
-		else
-		{
-			System.out.println("browsing as guest");
-		}
-		
-		//reader.close();
+//		try {
+//			input.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 }

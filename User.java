@@ -12,10 +12,10 @@ import java.io.*;
 import java.util.*;
 
 public abstract class User{
-    private String username;
-    private String password;
-    private String name;
-    private String type;
+    protected String username;
+    protected String password;
+    protected String name;
+    protected String type;
 	
 	public String getType(){
 		return type; 
@@ -28,5 +28,10 @@ public abstract class User{
 	public boolean passwordMatches(String pass) {
 		if(password.equals(pass))return true;
 		return false;
+	}
+	
+	public void display()
+	{
+		System.out.println(name + " " + username + " type: " + type);
 	}
 }

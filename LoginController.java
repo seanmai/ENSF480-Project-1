@@ -29,8 +29,6 @@ public class LoginController{
 			view.display();
 			String user = view.getUser();
 			String pass = view.getPass();
-			System.out.println("entered user is: " + user);
-			System.out.println("entered pass is: " + pass);
 			for(int i = 0; i < users.getUsers().size(); i++)
 			{
 				currentUser = users.getUsers().get(i);

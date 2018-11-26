@@ -32,11 +32,19 @@ public class UserList{
 	
 	public ArrayList<User> getUsers()
 	{
-		return users;
+		return single_list.users;
 	}
 	
 	public void addUser(User u)
 	{
 		single_list.users.add(u);
+	}
+	
+	public void display()
+	{
+		for(int i = 0; i < single_list.users.size(); i++)
+		{
+			single_list.users.get(i).display();
+		}
 	}
 }

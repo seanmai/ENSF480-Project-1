@@ -20,13 +20,6 @@ public class LoginView implements View{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		Scanner reader = new Scanner(System.in);
-//		String s;
-//		System.out.println("Please enter your username:");
-//		s = reader.nextLine();
-//		System.out.println("Please enter your password:");
-//		s = reader.nextLine();
-//		reader.close();
 	}
 
 	public String getUser() {
