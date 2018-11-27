@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 public class RegisteredBuyerView implements View {
 
-	ArrayList <Promotion> promotions;
-//	Subject subject;
+	ArrayList<Promotion> promotions;
+	ArrayList<Document> inventory;
+	private int selection;
 	
 	public RegisteredBuyerView(){
 		
@@ -22,11 +23,6 @@ public class RegisteredBuyerView implements View {
 		System.out.println("New promotions available! \n");
 	}
 	
-	public void displayPromos(){
-		for(Promotion p: promotions){
-			p.display();
-		}
-	}
 	
 	@Override
 	public void display(){
@@ -39,11 +35,44 @@ public class RegisteredBuyerView implements View {
 		System.out.println("3. Checkout");
 		option = reader.nextInt();
 		}while(option != 1 && option != 2 && option != 3);
-		if(option == 1){
-			InventoryController inventory = new InventoryController();
-			
-		}
 		
+		selection = option;
+		
+	}
+
+	public int getSelection() {
+		return selection;
+	}
+
+	public void setSelection(int selection) {
+		this.selection = selection;
+	}
+	
+	public void browse(){
+		InventoryController inv = new InventoryController();
+		do{
+			inv.displayInventory();
+			Scanner reader = new Scanner(System.in);
+			System.out.println("Please enter one of the following options: ");
+			System.out.println("1. Enter a document ID to add it to cart");
+			System.out.println("2. Exit");
+			selection = reader.nextInt();
+		} while(selection != 1 && selection != 2);
+	}
+	
+	public void viewPromos(){
+		PromotionListController promos = new PromotionListController(this);
+		promos.displayPromotions();
+	}
+	
+	public void checkout(){
+		
+	}
+	
+	public void getDocID(){
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Please enter a document ID to add it to cart");
+		selection = reader.nextInt();
 	}
 	
 	

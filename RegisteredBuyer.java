@@ -12,10 +12,17 @@ import java.util.ArrayList;
 
 public class RegisteredBuyer extends User implements Buyer{
 
+	public RegisteredBuyer(String username, String password, String name){
+		this.username = username;
+		this.password = password; 
+		this.name = name;
+		this.type = "R";
+	}
+	
     public void unsubscribe(){
         
     }
-    public ArrayList<Promotion> viewPromos(){
+    public void viewPromos(){
     	
     }
     
