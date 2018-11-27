@@ -31,6 +31,7 @@ public class CheckoutView implements View{
     		n = Integer.parseInt(input.readLine());
 		}while(n != 1 && n != 2);
         if(n == 1){
+            order = new Order();
             order.setItems(cart);
         }
 	}
@@ -38,7 +39,6 @@ public class CheckoutView implements View{
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		order = new Order();
 		System.out.println("Enter your name: ");
         order.setName(input.readLine());
         System.out.println("Enter your card number: ");
