@@ -24,12 +24,13 @@ public class OrdinaryBuyerView implements View{
 		do{
 		System.out.println("Please select one of the following:");
 		System.out.println("1. Browse Documents");
-		System.out.println("2. Add To Cart");
-		System.out.println("3. View Cart");
-		System.out.println("4. Create Account");
-		System.out.println("5. Exit");
+		System.out.println("2. Search Documents");
+		System.out.println("3. Add To Cart");
+		System.out.println("4. View Cart");
+		System.out.println("5. Create Account");
+		System.out.println("6. Exit");
 		n = Integer.parseInt(input.readLine());
-		}while(n < 1 || n > 5);
+		}while(n < 1 || n > 6);
 		
 	}
 	
@@ -71,6 +72,14 @@ public class OrdinaryBuyerView implements View{
         
         System.out.println("CHANGE TO REGBUYER!");
         return new Operator(user, password, name);
+	}
+
+	public String promptSearch() throws IOException {
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		LoginController aControl = new LoginController();
+		System.out.println("Enter search key: ");
+        String key = input.readLine();
+        return key;
 	}
     
 }

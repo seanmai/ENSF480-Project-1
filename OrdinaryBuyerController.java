@@ -26,16 +26,18 @@ public class OrdinaryBuyerController {
 					aControl.displayInventory();
 					break;
 				case 2:
+					searchDocs();
+				case 3:
 					addDocToCart();
 					break;
-				case 3:
+				case 4:
 					displayCart();
 					cartMenu();
 					break;
-				case 4:
+				case 5:
 					registration();
 					break;
-				case 5:
+				case 6:
 					break;
 				}
 			} catch (NumberFormatException e) {
@@ -113,6 +115,17 @@ public class OrdinaryBuyerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void searchDocs() {
+		try {
+			String searchKey = view.promptSearch();
+			System.out.println("add search logic " + searchKey);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
