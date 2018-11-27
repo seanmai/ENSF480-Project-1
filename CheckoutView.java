@@ -30,6 +30,9 @@ public class CheckoutView implements View{
     		System.out.println("1. Confirm        2. Cancel");
     		n = Integer.parseInt(input.readLine());
 		}while(n != 1 && n != 2);
+        if(n == 1){
+            order.setItems(cart);
+        }
 	}
 
 	@Override
