@@ -20,7 +20,7 @@ public class MainClass{
 	* Prints start menu and returns user choice
 	* between logging in and continuing as guest user
 	* @throws IOException
-	* @throws NumberFormatException 
+	* @throws NumberFormatException
 	*/
 	public static int startMenu() throws NumberFormatException, IOException
 	{
@@ -37,7 +37,13 @@ public class MainClass{
 	public static void populateDocs(){
 		InventoryController invControl = new InventoryController();
 		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 20);
+		Document d2 = new Document("Seam", "How to be better than waf", 400, "Encyclopedia", 1, 50);
+		Document d3 = new Document("Karla", "Doesn't really matter", 16, "Magezine", 100, 5);
+		Document d4 = new Document("The Moose", "ENSF480", 100, "Book", 0, 500);
 		invControl.addDocument(d1);
+		invControl.addDocument(d2);
+		invControl.addDocument(d3);
+		invControl.addDocument(d4);
 	}
 	public static void populateUsers(){
 		UserList theList = UserList.getInstance();
