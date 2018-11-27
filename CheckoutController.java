@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CheckoutController  {
-	private Payment payment;
+	private Order order;
 	private CheckoutView view;
     private ArrayList<Document> cart;
 
@@ -30,7 +30,9 @@ public class CheckoutController  {
 			switch(selection) {
 			case 1:
 				view.display();
-				payment = view.getPayment();
+				order = view.getOrder();
+				order.setItems(cart);
+				view.displayReceipt(order);
 				break;
 			case 2:
 				System.out.println("exit");
@@ -43,7 +45,5 @@ public class CheckoutController  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 	}
 }
