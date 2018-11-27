@@ -45,12 +45,12 @@ public class CheckoutView implements View{
 	}
 
     public void displayReceipt(Order order){
-        System.out.println("Order confirmed!")
+        System.out.println("Order confirmed!");
         System.out.println("--------------------------------");
         double totalPrice = 0;
-        for(int i = 0; i < order.items.size(); i++){
-            System.out.println(order.items.get(i).getTitle() + "        " + order.items.get(i).getPrice());
-            totalPrice += cart.get(i).getPrice();
+        for(int i = 0; i < order.getItems().size(); i++){
+            System.out.println(order.getItems().get(i).getTitle() + "        " + order.getItems().get(i).getPrice());
+            totalPrice += order.getItems().get(i).getPrice();
         }
         System.out.println("Total price: " + totalPrice);
         System.out.println("Name: " + order.getName());
