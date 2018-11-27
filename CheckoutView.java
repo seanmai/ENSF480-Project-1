@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class CheckoutView implements View{
     private int n;
-	private Payment payment;
+	private Order order;
 
     public void confirmInvoice(ArrayList<Document> cart) throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -35,20 +35,34 @@ public class CheckoutView implements View{
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		payment = new Payment();
+		order = new Order();
 		System.out.println("Enter your name: ");
-        payment.setName(input.readLine());
+        order.setName(input.readLine());
         System.out.println("Enter your card number: ");
-        payment.setCardInfo(input.readLine());
+        order.setCardInfo(input.readLine());
 		System.out.println("Enter your address: ");
-        payment.setAddress(input.readLine());
+        order.setAddress(input.readLine());
 	}
+
+    public void displayReceipt(Order order){
+        System.out.println("Order confirmed!")
+        System.out.println("--------------------------------");
+        double totalPrice = 0;
+        for(int i = 0; i < order.items.size(); i++){
+            System.out.println(order.items.get(i).getTitle() + "        " + order.items.get(i).getPrice());
+            totalPrice += cart.get(i).getPrice();
+        }
+        System.out.println("Total price: " + totalPrice);
+        System.out.println("Name: " + order.getName());
+        System.out.println("Address: " + order.getAddress());
+        System.out.println("Credit Card: " + order.getCardInfo());
+    }
 
     public int getSelection() {
 		return n;
 	}
 
-	public Payment getPayment() {
-		return payment;
+	public Order getOrder() {
+		return order;
 	}
 }
