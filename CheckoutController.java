@@ -31,6 +31,7 @@ public class CheckoutController  {
 			case 1:
 				view.display();
 				order = view.getOrder();
+				view.displayReceipt(order);
 				break;
 			case 2:
 				System.out.println("exit");
