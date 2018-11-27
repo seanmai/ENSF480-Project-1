@@ -45,7 +45,7 @@ public class OrdinaryBuyerController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}while(selection != 5);
+		}while(selection != 5 && selection != 4);
 	}
 
 	private void displayCart() {
@@ -105,7 +105,14 @@ public class OrdinaryBuyerController {
 	}
 
 	private void registration() {
-		User u = view.promptReg();
+		try {
+			User u = view.promptReg();
+			UserList.getInstance().addUser(u);
+			System.out.println("Account created successfully!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
