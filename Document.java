@@ -3,16 +3,17 @@ import java.util.ArrayList;
 
 public class Document {
 	
-	private static int classID = 0; 
-	private int ID;
+	static int classID = 0; 
+	public int ID;
 	
 	private String author;
 	private String title;
 	private int pages;
 	private String type;
 	private int quantity;	
+	private double price;
 	
-	public Document(String author, String title, int pages, String type, int quantity){
+	public Document(String author, String title, int pages, String type, int quantity, int price){
 		this.author = author;
 		this.title = title;
 		this.pages = pages;
@@ -53,7 +54,12 @@ public class Document {
 		return type;
 	}
 	
+	public double getPrice() {
+		return price;
+	}
+	
 	public void display(){
-		System.out.println(ID + ".	" + title + "\n" + "	Author: "+ author + "\n" + "	Type: " + getType() + "\n" + "	Pages: " + pages + "\n");
+		System.out.println(ID + ".	" + title + "\n" + "	Author: "+ author + "\n" + 
+							"	Type: " + getType() + "\n" + "	Price: " + price);
 	}
 }

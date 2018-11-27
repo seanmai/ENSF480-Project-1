@@ -16,6 +16,7 @@ public class RegisteredBuyer extends User implements Buyer{
         
     }
     public ArrayList<Promotion> viewPromos(){
+    	return null;
     	
     }
     

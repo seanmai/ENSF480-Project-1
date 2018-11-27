@@ -4,12 +4,11 @@ import java.io.InputStreamReader;
 
 public class OperatorView implements View{
 
-	private int selection;
+	private int n;
 	
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		int n;
 		do{
 		System.out.println("Please select one of the following:");
 		System.out.println("1. Browse Documents");
@@ -19,12 +18,10 @@ public class OperatorView implements View{
 		System.out.println("5. Exit");
 		n = Integer.parseInt(input.readLine());
 		}while(n != 1 && n != 2 && n != 3 && n != 4 && n != 5);
-		
-		selection = n;
 	}
 
 	public int getSelection() {
-		return selection;
+		return n;
 	}
 }
 

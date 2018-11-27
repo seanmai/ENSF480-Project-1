@@ -42,4 +42,7 @@ public class Inventory{
 		return single_inventory.documents;
 	}
 	
+	public static int getSize() {
+		return single_inventory.documents.size();
+	}
 }

@@ -36,7 +36,7 @@ public class MainClass{
 	
 	public static void populateDocs(){
 		InventoryController invControl = new InventoryController();
-		Document d1 = new Document("Waf", "My Book", 15, "Book", 200);
+		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 15);
 		invControl.addDocument(d1);
 	}
 	public static void populateUsers(){
@@ -86,6 +86,8 @@ public class MainClass{
 			else
 			{
 				System.out.println("browsing as guest");
+				OrdinaryBuyerController aControl = new OrdinaryBuyerController();
+				aControl.runSession();
 			}
 		}while(true);
 		
