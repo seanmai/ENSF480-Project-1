@@ -18,26 +18,29 @@ public class RegisteredBuyer extends User implements Buyer{
 		this.name = name;
 		this.type = "R";
 	}
-	
-    public void unsubscribe(){
-        
-    }
-	
-    public ArrayList<Promotion> viewPromos(){
-    	return null;
-    }
-    
-    public void addToCart(Document doc){
-    	
-    }
-    public void searchDocument(String name){
-    	
-    }
-    public void placeOrder(ArrayList<Document> cart){
-    	
-    }
-    public void makePayment(){
-    	
-    }
+
+	@Override
+	public void addToCart(Document doc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void searchDocument(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void placeOrder(ArrayList<Document> cart) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void makePayment() {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
