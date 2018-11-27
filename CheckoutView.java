@@ -48,7 +48,7 @@ public class CheckoutView implements View{
 	}
 
     public void displayReceipt(Order order){
-        System.out.println("Order confirmed!");
+        System.out.println("\nOrder confirmed!");
         System.out.println("--------------------------------");
         double totalPrice = 0;
         for(int i = 0; i < order.getItems().size(); i++){
@@ -56,9 +56,10 @@ public class CheckoutView implements View{
             totalPrice += order.getItems().get(i).getPrice();
         }
         System.out.println("Total price: " + totalPrice);
+        System.out.println("--------------------------------");
         System.out.println("Name: " + order.getName());
         System.out.println("Address: " + order.getAddress());
-        System.out.println("Credit Card: " + order.getCardInfo());
+        System.out.println("Credit Card: " + order.getCardInfo() + "\n");
     }
 
     public int getSelection() {

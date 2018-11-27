@@ -31,6 +31,14 @@ public class CheckoutController  {
 			case 1:
 				view.display();
 				order = view.getOrder();
+				Inventory inv = Inventory.getInstance();
+				for(int i = 0; i < order.getItems.size(); i++){
+					for(int j = 0; j < inv.getDocuments(); j++){
+						if(order.getItems.at(i).getID() == inv.getDocuments.at(j).getID()){
+							inv.getDocuments.at(j).setQuantity = (inv.getDocuments.at(j).getQuantity - 1);
+						}
+					}
+				}
 				view.displayReceipt(order);
 				break;
 			case 2:
