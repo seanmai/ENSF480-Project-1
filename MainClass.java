@@ -97,6 +97,8 @@ public class MainClass{
 			else
 			{
 				System.out.println("browsing as guest");
+				OrdinaryBuyerController aControl = new OrdinaryBuyerController();
+				aControl.runSession();
 			}
 		}while(true);
 

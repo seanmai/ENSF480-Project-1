@@ -37,10 +37,10 @@ public class OperatorController {
 					addDoc();
 					break;
 				case 3:
-					System.out.println("add delete logic");
+					deleteDoc();
 					break;
 				case 4:
-					System.out.println("add edit logic");
+					editDoc();
 					break;
 				case 5:
 					break;
@@ -55,6 +55,21 @@ public class OperatorController {
 		}while(selection != 5);
 	}
 
+	private void deleteDoc() {
+		int delID;
+		try {
+			delID = view.getDocNum();
+			if(delID == -1)return;
+			else {
+				InventoryController aControl = new InventoryController();
+				aControl.removeDocument(delID);
+			}
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+
 	private void addDoc() {
 		try {
 			Document toAdd = view.getDocAdd();
@@ -66,6 +81,24 @@ public class OperatorController {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	private void editDoc() {
+		int editID;
+		try {
+			editID = view.getDocNum();
+			if(editID == -1)return;
+			else {
+				InventoryController aControl = new InventoryController();
+				Document doc = aControl.searchByID(editID);
+				if(doc == null)return;
+				
+				view.editDoc(doc);
+			}
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
