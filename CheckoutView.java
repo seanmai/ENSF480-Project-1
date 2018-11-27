@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class CheckoutView implements View{
     private int n;
-	private Payment payment;
+	private Order order;
 
     public void confirmInvoice(ArrayList<Document> cart) throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -35,13 +35,13 @@ public class CheckoutView implements View{
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		payment = new Payment();
+		order = new Order();
 		System.out.println("Enter your name: ");
-        payment.setName(input.readLine());
+        order.setName(input.readLine());
         System.out.println("Enter your card number: ");
-        payment.setCardInfo(input.readLine());
+        order.setCardInfo(input.readLine());
 		System.out.println("Enter your address: ");
-        payment.setAddress(input.readLine());
+        order.setAddress(input.readLine());
 	}
 
     public void displayReceipt(Order order){
@@ -62,7 +62,7 @@ public class CheckoutView implements View{
 		return n;
 	}
 
-	public Payment getPayment() {
-		return payment;
+	public Order getOrder() {
+		return order;
 	}
 }
