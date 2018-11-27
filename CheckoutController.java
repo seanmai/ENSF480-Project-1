@@ -11,9 +11,13 @@
 import java.io.IOException;
 
 public class CheckoutController  {
-
 	private Payment payment;
 	private CheckoutView view;
+    private ArrayList<Document> cart;
+
+	public CheckoutController(ArrayList<Document> cart){
+		this.cart = cart;
+	}
 
 	public void runSession(){
         int selection = 0;
