@@ -65,8 +65,9 @@ public class OrdinaryBuyerView implements View{
 		System.out.println("How would you like to proceed? ");
 		System.out.println("1. Back To Main Menu");
 		System.out.println("2. Proceed To Checkout");
+		System.out.println("3. Remove Item");
 		n = Integer.parseInt(input.readLine());
-		}while(n != 1 && n != 2);
+		}while(n != 1 && n != 2 && n != 3);
 	}
 
 	/**
@@ -103,6 +104,19 @@ public class OrdinaryBuyerView implements View{
 		System.out.println("Enter search key: ");
         String key = input.readLine();
         return key;
+	}
+
+	public int promptCartEdit() throws NumberFormatException, IOException {
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the ID of the document to remove: ");
+        int id = Integer.parseInt(input.readLine());
+
+        while(id > Inventory.getInstance().getSize() || id < 0){
+        	System.out.println("Invalid book id...");
+        	System.out.println("Enter the ID of the document: ");
+            id = Integer.parseInt(input.readLine());
+        }
+        return id;
 	}
 
 }
