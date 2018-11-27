@@ -9,22 +9,16 @@
  */
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class CheckoutController  {
+
 	private Payment payment;
 	private CheckoutView view;
-    private ArrayList<Document> cart;
-
-	public CheckoutController(ArrayList<Document> cart){
-		this.cart = cart;
-		view = new CheckoutView();
-	}
 
 	public void runSession(){
         int selection = 0;
 		try {
-			view.confirmInvoice(cart);
+			view.confirmInvoice();
 			selection = view.getSelection();
 
 			switch(selection) {
