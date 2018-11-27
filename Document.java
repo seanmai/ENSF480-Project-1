@@ -19,6 +19,7 @@ public class Document {
 		this.pages = pages;
 		this.type = type;
 		this.quantity = quantity;
+		this.price = price;
 		
 		ID = classID++; 
 	}

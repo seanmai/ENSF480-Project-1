@@ -23,19 +23,11 @@ public class CheckoutController  {
 
 			switch(selection) {
 			case 1:
-                try {
-                    view.display();
-                    payment = view.getPayment();
-                } catch (NumberFormatException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+				view.display();
+				payment = view.getPayment();
 				break;
 			case 2:
-				System.out.println("add cancel logic");
+				System.out.println("exit");
 				break;
 			}
 		} catch (NumberFormatException e) {

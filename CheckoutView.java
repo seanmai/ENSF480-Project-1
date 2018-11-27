@@ -14,12 +14,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class CheckoutView implements View{
-    private int selection;
+    private int n;
 	private Payment payment;
 
     public void confirmInvoice(ArrayList<Document> cart) throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-		int n;
         do{
             double totalPrice = 0;
     		for(int i = 0; i < cart.size(); i++){
@@ -36,6 +35,7 @@ public class CheckoutView implements View{
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		payment = new Payment();
 		System.out.println("Enter your name: ");
         payment.setName(input.readLine());
         System.out.println("Enter your card number: ");
@@ -45,7 +45,7 @@ public class CheckoutView implements View{
 	}
 
     public int getSelection() {
-		return selection;
+		return n;
 	}
 
 	public Payment getPayment() {
