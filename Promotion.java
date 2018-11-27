@@ -5,7 +5,7 @@ public class Promotion {
 	private String startDate;
 	private String endDate;
 	private String description;
-	
+
 	public String getStartDate() {
 		return startDate;
 	}
@@ -25,14 +25,19 @@ public class Promotion {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	} 
-	
+	}
+
 	public int getID(){
 		return id;
 	}
-	
+
+	/**
+	* Prints the data for promotion
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void display(){
 		System.out.println("ID: " + id + "\n" + "Promotion: " + description + "\n" + "Start date" + startDate + "\n" + "End date: " + endDate);
 	}
-	
+
 }

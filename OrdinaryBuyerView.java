@@ -15,9 +15,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrdinaryBuyerView implements View{
-	
+
 	public int n;
 
+	/**
+	* Displays and parses user input for Ordinary Buyer actions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -31,19 +36,29 @@ public class OrdinaryBuyerView implements View{
 		System.out.println("6. Exit");
 		n = Integer.parseInt(input.readLine());
 		}while(n < 1 || n > 6);
-		
+
 	}
-	
+
 	public int getSelection(){
 		return n;
 	}
 
+	/**
+	* Displays and parses user input for adding to cart action
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void promptItem() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Please enter the document number you wish to add to cart:");
-		n = Integer.parseInt(input.readLine());		
+		n = Integer.parseInt(input.readLine());
 	}
 
+	/**
+	* Displays and parses user input for checkout actions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void promptCart() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		do{
@@ -54,6 +69,10 @@ public class OrdinaryBuyerView implements View{
 		}while(n != 1 && n != 2);
 	}
 
+	/**
+	* Displays and parses user input for registration action
+	* @throws IOException
+	*/
 	public User promptReg() throws IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		LoginController aControl = new LoginController();
@@ -69,11 +88,16 @@ public class OrdinaryBuyerView implements View{
         }
 		System.out.println("Enter a password: ");
         String password = input.readLine();
-        
+
         System.out.println("CHANGE TO REGBUYER!");
         return new Operator(user, password, name);
 	}
 
+	/**
+	* Displays and parses user input for search actions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public String promptSearch() throws IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		LoginController aControl = new LoginController();
@@ -81,5 +105,5 @@ public class OrdinaryBuyerView implements View{
         String key = input.readLine();
         return key;
 	}
-    
+
 }

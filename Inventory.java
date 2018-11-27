@@ -13,22 +13,28 @@ import java.util.ArrayList;
 public class Inventory{
 	private ArrayList<Document> documents;
 	private static Inventory single_inventory = null;
-	
-	public static Inventory getInstance() 
-    { 
-        if (single_inventory == null) 
+
+	/**
+	* Returns singleton inventory
+	*/
+	public static Inventory getInstance()
+    {
+        if (single_inventory == null)
 		{
-            single_inventory = new Inventory(); 
+            single_inventory = new Inventory();
 		}
-  
-        return single_inventory; 
+
+        return single_inventory;
     }
-	
+
 	private Inventory()
 	{
 		documents = new ArrayList<Document>();
 	}
-	
+
+	/**
+	* Displays documents in the inventory
+	*/
 	public void display()
 	{
 		for(int i = 0; i < single_inventory.documents.size(); i++)
@@ -36,12 +42,12 @@ public class Inventory{
 			single_inventory.documents.get(i).display();
 		}
 	}
-	
+
 	public ArrayList<Document> getDocuments()
 	{
 		return single_inventory.documents;
 	}
-	
+
 	public static int getSize() {
 		return single_inventory.documents.size();
 	}

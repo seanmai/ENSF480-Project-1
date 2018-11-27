@@ -12,15 +12,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
- 
+
 public class MainClass{
 	static BufferedReader input;
-	
+
 	/**
 	* Prints start menu and returns user choice
 	* between logging in and continuing as guest user
-	 * @throws IOException 
-	 * @throws NumberFormatException 
+	* @throws IOException
+	* @throws NumberFormatException 
 	*/
 	public static int startMenu() throws NumberFormatException, IOException
 	{
@@ -33,7 +33,7 @@ public class MainClass{
 		}while(n != 1 && n != 2);
 		return n;
 	}
-	
+
 	public static void populateDocs(){
 		InventoryController invControl = new InventoryController();
 		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 20);
@@ -46,13 +46,13 @@ public class MainClass{
 		RegisteredBuyer r1 = new RegisteredBuyer("buyer", "p", "reg");
 		theList.addUser(r1);
 	}
-	
+
 	public static void populatePromotions(){
 		PromotionListController promo = new PromotionListController();
 		Promotion promotion = new Promotion(26, 11, 2018, 30, 11, 2018, "All books bogo");
 		promo.addPromotion(promotion);
 	}
-	
+
 	public static void main(String[] args)
 	{
 		input = new BufferedReader(new InputStreamReader(System.in));
@@ -99,7 +99,7 @@ public class MainClass{
 				System.out.println("browsing as guest");
 			}
 		}while(true);
-		
+
 //		try {
 //			input.close();
 //		} catch (IOException e) {

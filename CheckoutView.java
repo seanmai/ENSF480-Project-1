@@ -17,6 +17,13 @@ public class CheckoutView implements View{
     private int n;
 	private Order order;
 
+    /**
+	* Prints invoice confirmation display until a user selects acceptable input
+    * Sets cart to order
+    * @param cart
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
     public void confirmInvoice(ArrayList<Document> cart) throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         do{
@@ -36,6 +43,11 @@ public class CheckoutView implements View{
         }
 	}
 
+    /**
+	* Prints checkout display and sets input to payment info
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	@Override
 	public void display() throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -47,6 +59,10 @@ public class CheckoutView implements View{
         order.setAddress(input.readLine());
 	}
 
+    /**
+	* Displays receipt and sets the rest of the order information with user input
+    * @param order
+	*/
     public void displayReceipt(Order order){
         System.out.println("\nOrder confirmed!");
         System.out.println("--------------------------------");

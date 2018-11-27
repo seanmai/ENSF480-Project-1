@@ -16,9 +16,9 @@ public abstract class User{
     protected String password;
     protected String name;
     protected String type;
-	
+
 	public String getType(){
-		return type; 
+		return type;
 	}
 
 	public String getUsername() {
@@ -29,7 +29,10 @@ public abstract class User{
 		if(password.equals(pass))return true;
 		return false;
 	}
-	
+
+    /**
+	* displays user info
+	*/
 	public void display()
 	{
 		System.out.println(name + " " + username + " type: " + type);

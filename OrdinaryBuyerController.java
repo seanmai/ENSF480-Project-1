@@ -12,6 +12,11 @@ public class OrdinaryBuyerController {
 		cart = new ArrayList<Document>();
 	}
 
+	/**
+	* Controller for ordinary buyer actions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void runSession()
 	{
 		selection = 0;
@@ -29,6 +34,8 @@ public class OrdinaryBuyerController {
 					searchDocs();
 					break;
 				case 3:
+					InventoryController aControl = new InventoryController();
+					aControl.displayInventory();
 					addDocToCart();
 					break;
 				case 4:
@@ -48,7 +55,7 @@ public class OrdinaryBuyerController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}while(selection != 5 && selection != 4);
+		}while(selection != 5 && selection != 6);
 	}
 
 	private void displayCart() {
@@ -117,7 +124,7 @@ public class OrdinaryBuyerController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void searchDocs() {
 		try {
 			String searchKey = view.promptSearch();
@@ -133,12 +140,12 @@ public class OrdinaryBuyerController {
 				}
 				System.out.println();
 			}
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

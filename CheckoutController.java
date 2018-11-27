@@ -16,11 +16,19 @@ public class CheckoutController  {
 	private CheckoutView view;
     private ArrayList<Document> cart;
 
+	/**
+	* CheckoutController constructor
+	*/
 	public CheckoutController(ArrayList<Document> cart){
 		this.cart = cart;
 		view = new CheckoutView();
 	}
 
+	/**
+	* Runs checkout controller functions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void runSession(){
         int selection = 0;
 		try {

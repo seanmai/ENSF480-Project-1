@@ -4,12 +4,15 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class LoginView implements View{
-	
+
 	String enteredUser;
 	String enteredPass;
-	
-	public void display(){   
-		
+
+	/**
+	* Displays and parses username and password input
+	* @throws IOException
+	*/
+	public void display(){
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		try {
 			System.out.println("Please enter your username:");

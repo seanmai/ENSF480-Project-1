@@ -2,7 +2,9 @@
 import java.util.ArrayList;
 
 public class Document {
-
+	/**
+	* Increments classID to assign unique ID to each document
+	*/
 	static int classID = 0;
 	public int ID;
 
@@ -63,6 +65,13 @@ public class Document {
 		return price;
 	}
 
+	public void setPrice(double price){
+		this.price = price;
+	}
+
+	/**
+	* Display document information
+	*/
 	public void display(){
 		System.out.println(ID + ".	" + title + "\n" + "	Author: "+ author + "\n" +
 							"	Type: " + getType() + "\n" + "	Price: $" + price);
