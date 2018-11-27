@@ -11,15 +11,15 @@ import java.io.IOException;
  */
 
 public class OperatorController {
-	
+
 	private User user;
 	private OperatorView view;
-	
+
 	public OperatorController(User user) {
 		this.user = user;
 		view = new OperatorView();
 	}
-	
+
 	public void runSession()
 	{
 		int selection = 0;
@@ -27,7 +27,7 @@ public class OperatorController {
 			try {
 				view.display();
 				selection = view.getSelection();
-				
+
 				switch(selection) {
 				case 1:
 					InventoryController aControl = new InventoryController();
@@ -51,7 +51,7 @@ public class OperatorController {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+			}
 		}while(selection != 5);
 	}
 
