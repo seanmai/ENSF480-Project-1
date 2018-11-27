@@ -40,9 +40,8 @@ public class PromotionListController {
 		view.update(promos.getPromoList());
 	}
 	
-	public ArrayList<Promotion> getPromotions(){
-		ArrayList<Promotion> promoList = promos.getPromoList();
-		return promoList;
+	public void displayPromotions(){
+		promos.display();
 	}
 	
 }

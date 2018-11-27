@@ -43,7 +43,11 @@ public class MainClass{
 		UserList theList = UserList.getInstance();
 		Operator o1 = new Operator("wafa.anam", "pass", "Wafa");
 		theList.addUser(o1);
+		RegisteredBuyer r1 = new RegisteredBuyer("buyer", "p", "reg");
+		theList.addUser(r1);
 	}
+
+	
 	
 	public static void main(String[] args)
 	{
@@ -74,6 +78,8 @@ public class MainClass{
 				if(theUser.getType().equals("R"))
 				{
 					System.out.println("registered buyer logged in");
+					RegisteredBuyerController rControl = new RegisteredBuyerController(theUser);
+					rControl.runSession();
 				}
 				else if(theUser.getType().equals("O"))
 				{
