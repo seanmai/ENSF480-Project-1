@@ -20,6 +20,11 @@ public class OperatorController {
 		view = new OperatorView();
 	}
 
+	/**
+	* Runs checkout controller functions
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	public void runSession()
 	{
 		int selection = 0;
@@ -55,6 +60,11 @@ public class OperatorController {
 		}while(selection != 5);
 	}
 
+	/**
+	* deletes document from inventory
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	private void deleteDoc() {
 		int delID;
 		try {
@@ -67,9 +77,14 @@ public class OperatorController {
 		} catch (NumberFormatException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
 
+	/**
+	* adds document to inventory
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	private void addDoc() {
 		try {
 			Document toAdd = view.getDocAdd();
@@ -80,9 +95,14 @@ public class OperatorController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
+	/**
+	* edits and updaetes document in the inventory
+	* @throws NumberFormatException
+	* @throws IOException
+	*/
 	private void editDoc() {
 		int editID;
 		try {
@@ -92,7 +112,7 @@ public class OperatorController {
 				InventoryController aControl = new InventoryController();
 				Document doc = aControl.searchByID(editID);
 				if(doc == null)return;
-				
+
 				view.editDoc(doc);
 			}
 		} catch (NumberFormatException | IOException e) {

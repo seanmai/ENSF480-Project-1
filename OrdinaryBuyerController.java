@@ -58,6 +58,9 @@ public class OrdinaryBuyerController {
 		}while(selection != 5 && selection != 6);
 	}
 
+	/**
+	* displays items in cart
+	*/
 	private void displayCart() {
 
 		System.out.println("Cart Contains:");
@@ -67,6 +70,9 @@ public class OrdinaryBuyerController {
 		System.out.println();
 	}
 
+	/**
+	* adds a document to the cart
+	*/
 	private void addDocToCart() {
 		try {
 			view.promptItem();
@@ -95,6 +101,9 @@ public class OrdinaryBuyerController {
 		}
 	}
 
+	/**
+	* handles cart menu actions
+	*/
 	private void cartMenu() {
 		try {
 			view.promptCart();
@@ -114,6 +123,9 @@ public class OrdinaryBuyerController {
 		}
 	}
 
+	/**
+	* handles registration
+	*/
 	private void registration() {
 		try {
 			User u = view.promptReg();
@@ -125,6 +137,9 @@ public class OrdinaryBuyerController {
 		}
 	}
 
+	/**
+	* handles document searches
+	*/
 	private void searchDocs() {
 		try {
 			String searchKey = view.promptSearch();
