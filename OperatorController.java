@@ -48,6 +48,15 @@ public class OperatorController {
 					editDoc();
 					break;
 				case 5:
+					editPromotion();
+					break;
+				case 6: 
+					addPromo();
+					break;
+				case 7: 
+					deletePromo();
+					break;
+				case 8:
 					break;
 				}
 			} catch (NumberFormatException e) {
@@ -97,6 +106,28 @@ public class OperatorController {
 		}
 
 	}
+	
+	private void addPromo() throws NumberFormatException, IOException{
+		Promotion promo = view.getPromotionAdd();
+		PromotionListController c = new PromotionListController();
+		c.addPromotion(promo);
+		System.out.println("Successfully added promotion");
+	}
+	
+	private void deletePromo(){
+		int id;
+		try {
+			id = view.getPromoNum();
+			if(id == -1)return;
+			else {
+				PromotionListController aControl = new PromotionListController();
+				aControl.removePromotion(id);
+			}
+		} catch (NumberFormatException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	* edits and updaetes document in the inventory
@@ -121,4 +152,19 @@ public class OperatorController {
 		}
 	}
 
+	private void editPromotion() throws NumberFormatException, IOException{
+		int id; 
+		id = view.getPromoNum();
+		if(id == -1)return;
+		else{
+			PromotionListController c = new PromotionListController();
+			Promotion promo = c.searchByID(id);
+			if(promo == null) return;
+			
+			view.editPromo(promo);
+		}
+	}
+	
+	
+	
 }

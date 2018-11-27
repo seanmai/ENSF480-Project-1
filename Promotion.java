@@ -1,18 +1,19 @@
 
 public class Promotion {
-	private static int classId = 0;
+
+	public static int classId = 0;
 	private int id;
 	private String startDate;
 	private String endDate;
 	private String description;
 	
-	public Promotion(int day, int month, int year, int day2, int month2, int year2, String desc) {
+	public Promotion(int day, int month, int year, int day2, int month2, int year2, String desc){
 		setStartDate(day, month, year);
 		setEndDate(day2, month2, year2);
-		description = desc;
 		id = classId++;
+		description = desc;
 	}
-
+	
 	public String getStartDate() {
 		return startDate;
 	}
@@ -32,19 +33,14 @@ public class Promotion {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
+	} 
+	
 	public int getID(){
 		return id;
 	}
-
-	/**
-	* Prints the data for promotion
-	* @throws NumberFormatException
-	* @throws IOException
-	*/
+	
 	public void display(){
-		System.out.println("ID: " + id + "\n" + "Promotion: " + description + "\n" + "Start date" + startDate + "\n" + "End date: " + endDate);
+		System.out.println("ID: " + id + "\n" + "Promotion: " + description + "\n" + "Start date: " + startDate + "\n" + "End date: " + endDate);
+		System.out.println("\n");
 	}
-
 }

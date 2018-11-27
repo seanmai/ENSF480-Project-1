@@ -32,9 +32,8 @@ public class PromotionListController {
 		return false;
 	}
 	
-	public void removePromotion(Promotion promo){
-		if(promos.removePromotion(promo)){
-			updateView();
+	public void removePromotion(int id){
+		if(promos.removePromotion(id)){
 		}
 	}
 	
@@ -43,7 +42,17 @@ public class PromotionListController {
 	}
 	
 	public void displayPromotions(){
-		//promos.display();
+		promos.display();
+	}
+	
+	public Promotion searchByID(int id){
+		ArrayList<Promotion> promoList = promos.getPromoList();
+		for(Promotion p: promoList){
+			if(id == p.getID()){
+				return p;
+			}
+		}
+		return null;
 	}
 	
 }
