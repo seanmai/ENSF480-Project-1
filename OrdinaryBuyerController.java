@@ -38,7 +38,6 @@ public class OrdinaryBuyerController {
 					addDocToCart();
 					break;
 				case 4:
-					displayCart();
 					cartMenu();
 					break;
 				case 5:
@@ -104,14 +103,25 @@ public class OrdinaryBuyerController {
 	* handles cart menu actions
 	*/
 	private void cartMenu() {
+		displayCart();
 		try {
 			view.promptCart();
 			selection = view.getSelection();
 
 			if(selection == 1)return;
-			else {
+			else if (selection == 2){
 				CheckoutController checkoutCtrl = new CheckoutController(cart);
 				checkoutCtrl.runSession();
+			}
+			else {
+				int cartItem = view.promptCartEdit();
+				for(int i = 0; i < cart.size(); i++) {
+					if(cart.get(i).getID() == cartItem) {
+						cart.remove(i);
+					}
+				}
+				System.out.println("\nCart updated");
+				cartMenu();
 			}
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block

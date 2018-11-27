@@ -34,6 +34,9 @@ public class MainClass{
 		return n;
 	}
 
+	/**
+	* Creates document data (singleton)
+	*/
 	public static void populateDocs(){
 		InventoryController invControl = new InventoryController();
 		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 20);
@@ -45,6 +48,9 @@ public class MainClass{
 		invControl.addDocument(d3);
 		invControl.addDocument(d4);
 	}
+	/**
+	* Creates user data (singleton)
+	*/
 	public static void populateUsers(){
 		UserList theList = UserList.getInstance();
 		Operator o1 = new Operator("wafa.anam", "pass", "Wafa");
@@ -53,6 +59,9 @@ public class MainClass{
 		theList.addUser(r1);
 	}
 
+	/**
+	* Creates promotion data (singleton)
+	*/
 	public static void populatePromotions(){
 		PromotionListController promo = new PromotionListController();
 		Promotion promotion = new Promotion(26, 11, 2018, 30, 11, 2018, "All books bogo");
