@@ -19,6 +19,7 @@ public class OrdinaryBuyerController {
 	*/
 	public void runSession()
 	{
+		InventoryController aControl = new InventoryController();
 		selection = 0;
 		do {
 			try {
@@ -27,14 +28,12 @@ public class OrdinaryBuyerController {
 
 				switch(selection) {
 				case 1:
-					InventoryController aControl = new InventoryController();
 					aControl.displayInventory();
 					break;
 				case 2:
 					searchDocs();
 					break;
 				case 3:
-					InventoryController aControl = new InventoryController();
 					aControl.displayInventory();
 					addDocToCart();
 					break;
