@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class OrdinaryBuyer implements Buyer{
 
     private RegisteredBuyer register(){
-
+        return null;
     }
 
     public void viewDocuments(){
@@ -30,10 +30,6 @@ public class OrdinaryBuyer implements Buyer{
 		reader.close();
         documents.get(n).display();
     }
-
-   private RegisteredBuyer register(){
-       return null;
-   }
 
 
 	@Override
