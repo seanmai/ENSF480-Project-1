@@ -11,13 +11,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class CheckoutView implements View{
     private int selection;
 	private Payment payment;
 
-    public void confirmInvoice(ArrayList<Documents> cart) throws NumberFormatException, IOException {
+    public void confirmInvoice(ArrayList<Document> cart) throws NumberFormatException, IOException {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		int n;
         do{
             double totalPrice = 0;
     		for(int i = 0; i < cart.size(); i++){

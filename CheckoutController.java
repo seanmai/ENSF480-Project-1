@@ -9,6 +9,7 @@
  */
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CheckoutController  {
 	private Payment payment;
@@ -17,12 +18,13 @@ public class CheckoutController  {
 
 	public CheckoutController(ArrayList<Document> cart){
 		this.cart = cart;
+		view = new CheckoutView();
 	}
 
 	public void runSession(){
         int selection = 0;
 		try {
-			view.confirmInvoice();
+			view.confirmInvoice(cart);
 			selection = view.getSelection();
 
 			switch(selection) {
