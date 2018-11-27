@@ -11,10 +11,12 @@ public class PromotionListController {
 		view = (RegisteredBuyerView) v;
 	}
 	
+	public PromotionListController(){
+		promos = PromotionList.getInstance();
+	}
+	
 	public void addPromotion(Promotion promo){
-		ArrayList<Promotion> promoList = promos.getPromoList();
-		promoList.add(promo);
-		updateView();
+		promos.getPromoList().add(promo);
 	}
 	
 	public boolean updatePromotion(Promotion promo){
