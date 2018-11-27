@@ -31,14 +31,15 @@ public class Inventory{
 	
 	public void display()
 	{
-		for(int i = 0; i < documents.size(); i++)
+		for(int i = 0; i < single_inventory.documents.size(); i++)
 		{
-			documents.get(i).display();
+			single_inventory.documents.get(i).display();
 		}
 	}
 	
 	public ArrayList<Document> getDocuments()
 	{
-		return documents;
+		return single_inventory.documents;
 	}
+	
 }

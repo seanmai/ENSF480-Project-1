@@ -1,41 +1,72 @@
 
 import java.util.ArrayList;
 
-public class PromotionList implements Subject {
+public class PromotionList {
 
-	ArrayList<Promotion> promotions;
-	ArrayList<Observer> observers;
+	private ArrayList<Promotion> promotions;
+	private static PromotionList single_promoList = null;
+//	private ArrayList<Observer> observers;
 	
-	public PromotionList(){
+	private PromotionList(){
 		promotions = new ArrayList<Promotion>();
-		observers = new ArrayList<Observer>();
 	}
 	
-	public void register(Observer obs){
-		observers.add(obs);
-		obs.update(promotions);
-	}
-
-	@Override
-	public void remove(Observer obs) {
-		observers.add(obs);
-	}
-
-	@Override
-	public void notifyObserver() {
-		for(int i = 0; i < observers.size(); i++){
-			Observer o = observers.get(i);
-			o.update(promotions);
+	public static PromotionList getInstance(){
+		if(single_promoList == null){
+			single_promoList = new PromotionList();
 		}
+		return single_promoList;
 	}
 	
-	public void removePromotions(Promotion promo){
-		for(int i = 0; i < promotions.size(); i++){
-			if(promotions.get(i).getID() == promo.getID()){
-				promotions.remove(i);
+//	public void register(Observer obs){
+//		observers.add(obs);
+//		obs.update(promotions);
+//	}
+//
+//	@Override
+//	public void remove(Observer obs) {
+//		observers.add(obs);
+//	}
+//
+//	@Override
+//	public void notifyObserver() {
+//		for(int i = 0; i < observers.size(); i++){
+//			Observer o = observers.get(i);
+//			o.update(promotions);
+//		}
+//	}
+	
+	public boolean removePromotion(Promotion promo){
+		ArrayList<Promotion> promoList = promotions;
+		int index = 0;
+		for(Promotion p: promoList){
+			if(p.getID() == promo.getID()){
+				promoList.remove(index);
+				return true;
 			}
+			index++;
 		}
-		notifyObserver();
+		return false;
+	}
+	
+	public void addPromotion(Promotion promo){
+		ArrayList<Promotion> promoList = promotions;
+		promoList.add(promo);
+	}
+	
+	public ArrayList<Promotion> getPromoList(){
+		return promotions;
+	}
+	
+	public void updatePromotion(Promotion promo){
+		ArrayList<Promotion> promoList = promotions;
+		int index = 0;
+		for(Promotion p: promoList){
+			if(p.getID() == promo.getID()){
+				promoList.set(index, promo);
+			}
+			index++;
+		}
 	}
 	
 }

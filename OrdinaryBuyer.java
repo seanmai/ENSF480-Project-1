@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrdinaryBuyer implements Buyer{
+
     private RegisteredBuyer register(){
 
     }
@@ -29,6 +30,11 @@ public class OrdinaryBuyer implements Buyer{
 		reader.close();
         documents.get(n).display();
     }
+
+   private RegisteredBuyer register(){
+       return null;
+   }
+
 
 	@Override
 	public void addToCart(Document doc) {

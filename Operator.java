@@ -10,7 +10,14 @@
 
 import java.util.ArrayList;
 
-public class Operator {
+public class Operator extends User{
+	
+	public Operator(String username, String password, String name) {
+		super.username = username;
+		super.password = password;
+		super.name = name;
+		type = "O";
+	}
 	
     public void addDocument(Document doc){
 		InventoryController c = new InventoryController();
