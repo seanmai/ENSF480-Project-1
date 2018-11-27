@@ -27,3 +27,4 @@ public class OperatorView implements View{
 		return selection;
 	}
 }
+
