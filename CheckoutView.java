@@ -44,6 +44,20 @@ public class CheckoutView implements View{
         payment.setAddress(input.readLine());
 	}
 
+    public void displayReceipt(Order order){
+        System.out.println("Order confirmed!");
+        System.out.println("--------------------------------");
+        double totalPrice = 0;
+        for(int i = 0; i < order.getItems().size(); i++){
+            System.out.println(order.getItems().get(i).getTitle() + "        " + order.getItems().get(i).getPrice());
+            totalPrice += order.getItems().get(i).getPrice();
+        }
+        System.out.println("Total price: " + totalPrice);
+        System.out.println("Name: " + order.getName());
+        System.out.println("Address: " + order.getAddress());
+        System.out.println("Credit Card: " + order.getCardInfo());
+    }
+
     public int getSelection() {
 		return n;
 	}
