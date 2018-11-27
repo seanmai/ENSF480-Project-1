@@ -39,6 +39,7 @@ public class RegisteredBuyerView implements View {
 		System.out.println("5. Add to cart");
 		System.out.println("6. Checkout");
 		System.out.println("7. Unsubscribe");
+		System.out.println("8: Exit");
 		option = reader.nextInt();
 		}while(option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6 && option != 7);
 		

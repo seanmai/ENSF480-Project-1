@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -47,7 +46,7 @@ public class RegisteredBuyerController {
 			case 8: 
 				break;
 			}
-		} while (selection != 4 && selection != 5);
+		} while (selection != 4 && selection != 5 && selection != 7 && selection != 8);
 	}
 	
 	public void browse(){
@@ -91,6 +90,8 @@ public class RegisteredBuyerController {
 			if(user.getUsername() == u.getUsername()){
 				users.remove(index);
 				System.out.println("Unsubscription was successful");
+				OrdinaryBuyerController c = new OrdinaryBuyerController();
+				c.runSession();
 			}
 			index++;
 		}
