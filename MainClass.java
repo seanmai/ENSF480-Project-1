@@ -36,24 +36,29 @@ public class MainClass{
 	
 	public static void populateDocs(){
 		InventoryController invControl = new InventoryController();
-		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 15);
+		Document d1 = new Document("Waf", "My Book", 15, "Book", 200, 20);
 		invControl.addDocument(d1);
 	}
 	public static void populateUsers(){
 		UserList theList = UserList.getInstance();
 		Operator o1 = new Operator("wafa.anam", "pass", "Wafa");
 		theList.addUser(o1);
-//		RegisteredBuyer r1 = new RegisteredBuyer("buyer", "p", "reg");
-//		theList.addUser(r1);
+		RegisteredBuyer r1 = new RegisteredBuyer("buyer", "p", "reg");
+		theList.addUser(r1);
 	}
-
 	
+	public static void populatePromotions(){
+		PromotionListController promo = new PromotionListController();
+		Promotion promotion = new Promotion(26, 11, 2018, 30, 11, 2018, "All books bogo");
+		promo.addPromotion(promotion);
+	}
 	
 	public static void main(String[] args)
 	{
 		input = new BufferedReader(new InputStreamReader(System.in));
 		populateDocs();
 		populateUsers();
+		populatePromotions();
 
 
 		int firstOption = 0;
@@ -78,8 +83,8 @@ public class MainClass{
 				if(theUser.getType().equals("R"))
 				{
 					System.out.println("registered buyer logged in");
-					//RegisteredBuyerController rControl = new RegisteredBuyerController(theUser);
-					//rControl.runSession();
+					RegisteredBuyerController rControl = new RegisteredBuyerController(theUser);
+					rControl.runSession();
 				}
 				else if(theUser.getType().equals("O"))
 				{
@@ -92,8 +97,6 @@ public class MainClass{
 			else
 			{
 				System.out.println("browsing as guest");
-				OrdinaryBuyerController aControl = new OrdinaryBuyerController();
-				aControl.runSession();
 			}
 		}while(true);
 		
