@@ -4,11 +4,10 @@ import java.util.Scanner;
 public class RegisteredBuyerView implements View {
 
 	ArrayList<Promotion> promotions;
-	ArrayList<Document> inventory;
 	private int selection;
 	
 	public RegisteredBuyerView(){
-		
+		promotions = PromotionList.getInstance().getPromoList();
 	}
 	
 	public void update(ArrayList<Promotion> promos) {
@@ -32,7 +31,9 @@ public class RegisteredBuyerView implements View {
 		System.out.println("Please enter one of the following options to proceed: " );
 		System.out.println("1. Browse");
 		System.out.println("2. View Promotions");
-		System.out.println("3. Checkout");
+		System.out.println("3: View Cart");
+		System.out.println("4. Checkout");
+		System.out.println("5. Unsubscribe");
 		option = reader.nextInt();
 		}while(option != 1 && option != 2 && option != 3);
 		
@@ -63,10 +64,6 @@ public class RegisteredBuyerView implements View {
 	public void viewPromos(){
 		PromotionListController promos = new PromotionListController(this);
 		promos.displayPromotions();
-	}
-	
-	public void checkout(){
-		
 	}
 	
 	public void getDocID(){
