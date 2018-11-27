@@ -53,8 +53,24 @@ public class OrdinaryBuyerView implements View{
 		}while(n != 1 && n != 2);
 	}
 
-	public User promptReg() {
-		return null;
+	public User promptReg() throws IOException {
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		LoginController aControl = new LoginController();
+		System.out.println("Enter your name: ");
+        String name = input.readLine();
+        System.out.println("Enter a username: ");
+        String user = input.readLine();
+        while(!aControl.validateUsername(user))
+        {
+        	System.out.println("Name taken! Try again.");
+        	System.out.println("Enter a username: ");
+            user = input.readLine();
+        }
+		System.out.println("Enter a password: ");
+        String password = input.readLine();
+        
+        System.out.println("CHANGE TO REGBUYER!");
+        return new Operator(user, password, name);
 	}
     
 }
