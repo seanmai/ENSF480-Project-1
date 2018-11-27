@@ -23,5 +23,24 @@ public class OperatorView implements View{
 	public int getSelection() {
 		return n;
 	}
+
+	public Document getDocAdd() throws IOException {
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("Book title: ");
+        String title = input.readLine();
+        System.out.println("Author: ");
+        String author = input.readLine();
+		System.out.println("Number of Pages: ");
+        int pages = Integer.parseInt(input.readLine());
+        System.out.println("Type: ");
+        String type = input.readLine();
+        System.out.println("Quantity: ");
+        int quantity = Integer.parseInt(input.readLine());
+        System.out.println("Price: ");
+        int price = Integer.parseInt(input.readLine());
+        
+        return new Document(author, title, pages, type, quantity, price);
+	}
 }
 

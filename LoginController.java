@@ -24,7 +24,6 @@ public class LoginController{
 	public User logIn()
 	{
 			User currentUser;
-			User theUser;
 			
 			view.display();
 			String user = view.getUser();
@@ -38,5 +37,31 @@ public class LoginController{
 				}
 			}
 			return null;
+	}
+	
+	public boolean validateUsername(String user) {
+		User currentUser;
+		for(int i = 0; i < users.getUsers().size(); i++)
+		{
+			currentUser = users.getUsers().get(i);
+			if(currentUser.getUsername().equals(user))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean validatePass(String pass) {
+		User currentUser;
+		for(int i = 0; i < users.getUsers().size(); i++)
+		{
+			currentUser = users.getUsers().get(i);
+			if(currentUser.passwordMatches(pass))
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 }

@@ -34,7 +34,7 @@ public class OperatorController {
 					aControl.displayInventory();
 					break;
 				case 2:
-					System.out.println("add add logic");
+					addDoc();
 					break;
 				case 3:
 					System.out.println("add delete logic");
@@ -53,6 +53,19 @@ public class OperatorController {
 				e.printStackTrace();
 			}
 		}while(selection != 5);
+	}
+
+	private void addDoc() {
+		try {
+			Document toAdd = view.getDocAdd();
+			InventoryController aControl = new InventoryController();
+			aControl.addDocument(toAdd);
+			System.out.println("Successfully added " + toAdd.getTitle() + " to inventory");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
