@@ -90,8 +90,7 @@ public class RegisteredBuyerController {
 			if(user.getUsername() == u.getUsername()){
 				users.remove(index);
 				System.out.println("Unsubscription was successful");
-				OrdinaryBuyerController c = new OrdinaryBuyerController();
-				c.runSession();
+				return;
 			}
 			index++;
 		}
