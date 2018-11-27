@@ -5,6 +5,7 @@ public class PromotionList {
 
 	private ArrayList<Promotion> promotions;
 	private static PromotionList single_promoList = null;
+//	private ArrayList<Observer> observers;
 	
 	private PromotionList(){
 		promotions = new ArrayList<Promotion>();
@@ -16,6 +17,24 @@ public class PromotionList {
 		}
 		return single_promoList;
 	}
+	
+//	public void register(Observer obs){
+//		observers.add(obs);
+//		obs.update(promotions);
+//	}
+//
+//	@Override
+//	public void remove(Observer obs) {
+//		observers.add(obs);
+//	}
+//
+//	@Override
+//	public void notifyObserver() {
+//		for(int i = 0; i < observers.size(); i++){
+//			Observer o = observers.get(i);
+//			o.update(promotions);
+//		}
+//	}
 	
 	public boolean removePromotion(Promotion promo){
 		ArrayList<Promotion> promoList = promotions;
@@ -47,12 +66,6 @@ public class PromotionList {
 				promoList.set(index, promo);
 			}
 			index++;
-		}
-	}
-	
-	public void display(){
-		for(Promotion p: promotions){
-			p.display();
 		}
 	}
 	

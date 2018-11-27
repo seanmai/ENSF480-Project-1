@@ -61,6 +61,6 @@ public class Document {
 	
 	public void display(){
 		System.out.println(ID + ".	" + title + "\n" + "	Author: "+ author + "\n" + 
-							"	Type: " + getType() + "\n" + "	Price: " + price);
+							"	Type: " + getType() + "\n" + "	Price: $" + price);
 	}
 }
