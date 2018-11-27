@@ -70,8 +70,7 @@ public class OrdinaryBuyerView implements View{
 		System.out.println("Enter a password: ");
         String password = input.readLine();
         
-        System.out.println("CHANGE TO REGBUYER!");
-        return new Operator(user, password, name);
+        return new RegisteredBuyer(user, password, name);
 	}
 
 	public String promptSearch() throws IOException {

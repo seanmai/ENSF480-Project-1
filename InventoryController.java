@@ -23,11 +23,17 @@ public class InventoryController{
 		ArrayList<Document> docList = theInv.getDocuments();
 		docList.add(doc);
     }
+	
     public void updateDocument(Document doc){
 		System.out.println("in update document");
     }
-    public void removeDocument(Document doc){
-		System.out.println("in remove document");
+    
+    public void removeDocument(int id){
+		for(int i = 0; i < Inventory.getSize(); i++) {
+			if(theInv.getDocuments().get(i).getID() == id) {
+				theInv.getDocuments().remove(i);
+			}
+		}
     }
     
     public void displayInventory() {
@@ -46,5 +52,17 @@ public class InventoryController{
 		}
 		
 		return ret;
+	}
+	
+	public Document searchByID(int id) {
+		Document currentDoc;
+		for(int i = 0; i < theInv.getSize(); i++) {
+			currentDoc = theInv.getDocuments().get(i);
+			if(currentDoc.getID() == id) {
+				return currentDoc;
+			}
+		}
+		
+		return null;
 	}
 }

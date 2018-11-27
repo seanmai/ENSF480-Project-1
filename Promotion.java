@@ -1,10 +1,17 @@
 
 public class Promotion {
-
+	private static int classId = 0;
 	private int id;
 	private String startDate;
 	private String endDate;
 	private String description;
+	
+	public Promotion(int day, int month, int year, int day2, int month2, int year2, String desc) {
+		setStartDate(day, month, year);
+		setEndDate(day2, month2, year2);
+		description = desc;
+		id = classId++;
+	}
 	
 	public String getStartDate() {
 		return startDate;

@@ -18,17 +18,4 @@ public class Operator extends User{
 		super.name = name;
 		type = "O";
 	}
-	
-    public void addDocument(Document doc){
-		InventoryController c = new InventoryController();
-		c.addDocument(doc);
-    }
-    public void updateDocument(Document doc){
-		InventoryController c = new InventoryController();
-		c.updateDocument(doc);
-    }
-    public void removeDocument(Document doc){
-		InventoryController c = new InventoryController();
-		c.removeDocument(doc);
-    }
 }

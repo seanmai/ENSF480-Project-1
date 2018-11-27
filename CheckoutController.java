@@ -32,10 +32,10 @@ public class CheckoutController  {
 				view.display();
 				order = view.getOrder();
 				Inventory inv = Inventory.getInstance();
-				for(int i = 0; i < order.getItems.size(); i++){
-					for(int j = 0; j < inv.getDocuments(); j++){
-						if(order.getItems.at(i).getID() == inv.getDocuments.at(j).getID()){
-							inv.getDocuments.at(j).setQuantity = (inv.getDocuments.at(j).getQuantity - 1);
+				for(int i = 0; i < order.getItems().size(); i++){
+					for(int j = 0; j < inv.getDocuments().size(); j++){
+						if(order.getItems().get(i).getID() == inv.getDocuments().get(j).getID()){
+							inv.getDocuments().get(j).setQuantity((inv.getDocuments().get(j).getQuantity() - 1));
 						}
 					}
 				}
