@@ -41,7 +41,7 @@ public class PromotionListController {
 	}
 	
 	public void displayPromotions(){
-		promos.display();
+		//promos.display();
 	}
 	
 }

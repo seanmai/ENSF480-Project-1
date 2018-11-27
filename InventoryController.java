@@ -34,4 +34,17 @@ public class InventoryController{
     	System.out.println("\nInventory contains: \n");
     	theInv.display();
     }
+
+	public ArrayList<Document> search(String searchKey) {
+		ArrayList<Document> ret = new ArrayList<Document>();
+		Document currentDoc;
+		for(int i = 0; i < theInv.getSize(); i++) {
+			currentDoc = theInv.getDocuments().get(i);
+			if(currentDoc.getAuthor().contains(searchKey) || currentDoc.getTitle().contains(searchKey)) {
+				ret.add(currentDoc);
+			}
+		}
+		
+		return ret;
+	}
 }

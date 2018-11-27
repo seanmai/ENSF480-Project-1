@@ -27,6 +27,7 @@ public class OrdinaryBuyerController {
 					break;
 				case 2:
 					searchDocs();
+					break;
 				case 3:
 					addDocToCart();
 					break;
@@ -120,7 +121,19 @@ public class OrdinaryBuyerController {
 	private void searchDocs() {
 		try {
 			String searchKey = view.promptSearch();
-			System.out.println("add search logic " + searchKey);
+			InventoryController inv = new InventoryController();
+			ArrayList<Document> results = inv.search(searchKey);
+			if(results.size() <= 0) {
+				System.out.println("\nNo results found for search \"" + searchKey + "\"\n");
+			}
+			else {
+				System.out.println("\nSearch results:");
+				for(int i = 0; i < results.size(); i++) {
+					results.get(i).display();
+				}
+				System.out.println();
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
