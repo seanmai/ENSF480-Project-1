@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class RegisteredBuyerController {
@@ -6,6 +7,7 @@ public class RegisteredBuyerController {
 	private ArrayList<Document> shoppingCart;
 	private RegisteredBuyer user;
 	private RegisteredBuyerView view;
+	int selection;
 	
 	public RegisteredBuyerController(User user){
 		this.user = (RegisteredBuyer) user;
@@ -14,62 +16,70 @@ public class RegisteredBuyerController {
 	}
 	
 	public void runSession() {
-		int answer;
+		selection = 0;
 		do {
 			view.display();
-			int selected = view.getSelection();
-			switch (selected) {
+			selection = view.getSelection();
+			
+			switch (selection) {
 			case 1:
 				browse();
 				break;
 			case 2:
-				view.viewPromos();
+				searchDocs();
 				break;
 			case 3:
-				viewCart();
+				view.viewPromos();
 				break;
 			case 4:
-				checkout();
+				viewCart();
+				cartMenu();
 				break;
 			case 5: 
+				addToCart();
+				break;
+			case 6:
+				checkout();
+				break;
+			case 7: 
 				unsubscribe();
 				break;
-			case 6: 
+			case 8: 
 				break;
 			}
-			Scanner reader = new Scanner(System.in);
-			System.out.println("Please enter one of the options below: ");
-			System.out.println("1. Back To Main Menu");
-			System.out.println("2. Exit");
-			answer = reader.nextInt();
-		} while (answer == 1);
+		} while (selection != 4 && selection != 5);
 	}
 	
 	public void browse(){
-		int answer;
-		do{
-			view.browse();
-			answer = view.getSelection();
-			if(answer != 2){
-				view.getDocID();
-				int id = view.getSelection();
-				addToCart(id);
-			}
-		}while(answer != 2);
+		view.browse();
 	}
 	
-	public void addToCart(int id){
-		Inventory inv = Inventory.getInstance();
-		while(id < 0 || id >= inv.getDocuments().size()){
-			System.out.println("Invalid input. Please try again");
-			view.getDocID();
-		}
-		Document doc = inv.getDocuments().get(id);
-		if(doc.getQuantity() <= 0){
-			System.out.println("Document is out of stock");
-		}else{
-			shoppingCart.add(doc);
-			System.out.println("\""+ doc.getTitle() + "\""+ " was added to your cart successfully");
+	public void addToCart(){
+		
+		try {
+			view.promptItem();
+			selection = view.getSelection();
+			while(selection < 0 || selection > Inventory.getSize())
+			{
+				System.out.println("Invalid document number! Try again...");
+				view.promptItem();
+				selection = view.getSelection();
+			}
+			Inventory theInv = Inventory.getInstance();
+			Document toAdd = theInv.getDocuments().get(selection);
+
+			if(toAdd.getQuantity() <= 0) {
+				System.out.println("Document out of stock.");
+				return;
+			}
+			shoppingCart.add(toAdd);
+			System.out.println("\"" + toAdd.getTitle() + "\"" + " successfully added to cart.\n");
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -80,6 +90,7 @@ public class RegisteredBuyerController {
 		for(User u: users){
 			if(user.getUsername() == u.getUsername()){
 				users.remove(index);
+				System.out.println("Unsubscription was successful");
 			}
 			index++;
 		}
@@ -93,12 +104,41 @@ public class RegisteredBuyerController {
 			doc.display();
 			total += doc.getPrice();
 		}
-		System.out.println("Total:   $" + total);
+		System.out.println("Total:  $" + total);
 	}
 	
 	public void checkout(){
 		CheckoutController checkout = new CheckoutController(shoppingCart);
 		checkout.runSession();
+	}
+	
+	private void searchDocs() {
+		try {
+			String searchKey = view.promptSearch();
+			System.out.println("add search logic " + searchKey);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void cartMenu() {
+		try {
+			view.promptCart();
+			selection = view.getSelection();
+
+			if(selection == 1)return;
+			else {
+				CheckoutController checkoutCtrl = new CheckoutController(shoppingCart);
+				checkoutCtrl.runSession();
+			}
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
